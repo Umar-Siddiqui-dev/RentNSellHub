@@ -15,19 +15,19 @@ import msg from '../../assets/chat.png'
 import resturant from '../../assets/restaurant.png'
 import save from '../../assets/save.png'
 import Map from '../../components/map/map'
-import { redirect, useLoaderData } from 'react-router-dom'
+import { redirect, useLoaderData, useNavigate } from 'react-router-dom'
 import DOMpurify from 'dompurify'
 
 import {AuthContext} from '../../context/Authcontext'
 const Singlepage = () => {
   const post=useLoaderData();
-  
+  const nav=useNavigate()
   const {currentUser}=useContext(AuthContext)
   const [saved,Setsaved]=useState(post.isSaved)
-  console.log(saved)
+  // console.log(saved)
   console.log(post)
   const dummyimages=["https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","https://images.pexels.com/photos/1428348/pexels-photo-1428348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"]
-    
+
   const handlesave=async()=>{
 
     Setsaved((prev)=>!prev)
@@ -36,6 +36,7 @@ const Singlepage = () => {
       }
     
     try{
+
     const response=await fetch("http://localhost:8800/api/user/save/",{
       method:'post',
       credentials:"include",
@@ -56,6 +57,27 @@ const Singlepage = () => {
       console.log(e)
       Setsaved((prev)=>!prev)
     }
+  }
+  const handlesendmessage=async(e)=>{
+  if (currentUser!==post.userId)
+  {
+    const response=await fetch("http://localhost:8800/api/chat/",{
+    method:"post",
+    credentials:"include",
+    headers:{
+      'Content-Type':"application/json"
+    },
+    body:JSON.stringify({
+      recieverId:post.userId
+    })
+  })
+  nav('/profile')
+  }
+  else{
+    alert("you can't send message to yourself")
+  }
+  
+  
   }
   return (
     <div className="singlepage">
@@ -84,6 +106,7 @@ const Singlepage = () => {
             
           </div>
         </div>
+        {/* <Chat chats={null} isProfile={f}/> */}
       </div>
       </div>
       <div className="features">
@@ -167,7 +190,7 @@ const Singlepage = () => {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button >
+            <button onClick={handlesendmessage} >
               <img src={msg} alt="" />
               Send a Message
             </button>

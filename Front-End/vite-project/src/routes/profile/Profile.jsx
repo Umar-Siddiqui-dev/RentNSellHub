@@ -6,13 +6,13 @@ import { useLoaderData, useNavigate } from 'react-router-dom'
 
 import { AuthContext } from '../../context/Authcontext'
 import { Link } from 'react-router-dom' 
-const Profile = () => {
+const Profile = ({authorid}) => {
   const data=useLoaderData()
   console.log(data.posts)
   console.log(data.chats)
   const{currentUser,updateUser}=useContext(AuthContext);
   const navigate=useNavigate()
-  
+  console.log(authorid)
   const handlelogout=async()=>{
     const res= await fetch("http://localhost:8800/api/auth/login");
     updateUser(null)
@@ -42,14 +42,14 @@ const Profile = () => {
            <div className="posts_show">
             <div className="myposts">
             <div className="title">
-              <h1>My List</h1>
+              <h1>My Posts</h1>
               <Link to="/addpost"><button>Create new post</button></Link>
             </div>
             <Addtolist post={data.posts.myposts}/>
             </div>
             <div className="saved_posts">
             <div className="title">
-              <h1>Saved List</h1>
+              <h1>Saved Posts</h1>
             </div>
             <Addtolist post={data.posts.savedPost}/>
             </div>

@@ -13,7 +13,7 @@ const Home = () => {
             <h1>FIND REAL ESTATE & GET YOUR DREAM PLACE</h1>
             
             <p className='pclass'>
-            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+            Discover unparalleled living. Whether you're searching for a cozy apartment, a spacious family house, or a luxurious estate, we have the perfect property to meet your needs.
             </p>
             
                 <Hero/>

@@ -1,7 +1,8 @@
 .list{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
+    margin-top: 4%;
     overflow-y:scroll;
     height: 90vh;
     flex-direction: column;

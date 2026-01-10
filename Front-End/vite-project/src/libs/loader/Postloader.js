@@ -32,7 +32,6 @@ try{
  })
 const [propost, prochat] = await Promise.all([profilepost.json(), chat.json()]);
 
-
  return {posts:propost,chats:prochat};
 
 }

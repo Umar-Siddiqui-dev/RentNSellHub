@@ -5,6 +5,7 @@ import {format} from 'timeago.js'
 import { SocketContext } from '../../context/SocketContext'
 import { useNotification } from '../../../Notification'
 
+
 const Chat = ({chats}) => {
     const [chat,Setchat]=useState(null)
     const messageEndRef=useRef()
@@ -56,7 +57,7 @@ const handlesubmit=async(e)=>{
     console.log(chat)
     Setchat((prev)=>({...prev,message:[...prev.message,data]}))
     e.target.reset()
-   
+   console.log(chat.reciever.id)
     socket.emit("sendMessage", {
         receiverId: chat.reciever.id, 
         data: data

@@ -82,10 +82,14 @@ input[type="number"] {
             img{
                 height: 24px;
                 width: 24px;
+                :focus{
+                    height: 28px;width: 28px;
+                   }
             }
             @include sm{
                padding: 20px;
             }
+            
         }
     }
 }
