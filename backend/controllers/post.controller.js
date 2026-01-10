@@ -44,7 +44,8 @@ export const getPost=async(req,res)=>{
                 author:{
                     select:{
                         username:true,
-                        image:true
+                        image:true,
+                        id:true
                     }
                 }
             }

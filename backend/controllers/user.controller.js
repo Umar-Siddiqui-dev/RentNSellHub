@@ -16,7 +16,9 @@ export const getUser=async(req,res)=>{
     const id=req.params.id;
     
     try{
-        const user= await prismacl.user.findUnique({where:{id}});
+        const user= await prismacl.user.findUnique({
+            where:{id}
+        });
         res.status(200).json(user)
 
     }catch(e){
