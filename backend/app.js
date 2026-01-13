@@ -10,9 +10,10 @@ import cors from "cors";
 // {origin: "http://localhost:5173"}
 const app=express();
 // app.use(cors({credentials:true}));
+const allowedOrigins = ['http://localhost:5713', 'https://rent-n-sell-hub.vercel.app'];
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:5713', // Replace with your client-side origin
+    origin: allowedOrigins, // Replace with your client-side origin
     credentials: true, // Allow credentials
   }));
   
