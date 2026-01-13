@@ -7,7 +7,7 @@ export const SocketContextProvider=({children})=>{
     const [socket,Setsocket]=useState( null);
    const {currentUser}=useContext(AuthContext)
     useEffect(()=>{
-        Setsocket(io("http://localhost:4000"))
+        Setsocket(io("https://socket-production-a292.up.railway.app"))
     },[])
 
     useEffect(()=>{

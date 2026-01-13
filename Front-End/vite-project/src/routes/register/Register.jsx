@@ -15,7 +15,7 @@ const Register = () => {
     const email=formdata.get("email");
     const password=formdata.get("password");
     try{
-      const response= await fetch("http://localhost:8800/api/auth/register",{
+      const response= await fetch("https://rentnsellhub-production.up.railway.app/api/auth/register",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({

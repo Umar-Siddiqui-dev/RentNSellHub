@@ -21,7 +21,7 @@ const Log = () => {
     const username=formdata.get('username');
     const password=formdata.get("password");
     try{
-      const response=await fetch("http://localhost:8800/api/auth/login",{
+      const response=await fetch("https://rentnsellhub-production.up.railway.app/api/auth/login",{
         method:"POST",
         credentials: 'include',
         headers:{"Content-Type":"application/json"},

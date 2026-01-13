@@ -1,2 +1,2 @@
-base_url="http://localhost:8800/api/auth";
+base_url="https://rentnsellhub-production.up.railway.app/api/auth";
 export default base_url;

@@ -12,8 +12,8 @@ const Update = () => {
       const formdata=new FormData(e.target);
       const {username,email,password}=Object.fromEntries(formdata)
       try{
-        // const res= await axios.put(`http://localhost:8800/api/user/${currentUser.id}`,{username,email,password})
-        const res = await fetch(`http://localhost:8800/api/user/${currentUser.id}`, {
+        // const res= await axios.put(`https://rentnsellhub-production.up.railway.app/api/user/${currentUser.id}`,{username,email,password})
+        const res = await fetch(`https://rentnsellhub-production.up.railway.app/api/user/${currentUser.id}`, {
           method: 'PUT',
           credentials:'include',
           headers: {

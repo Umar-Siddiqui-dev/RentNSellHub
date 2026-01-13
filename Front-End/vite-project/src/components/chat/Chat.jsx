@@ -18,7 +18,7 @@ const Chat = ({chats}) => {
     },[chat])
     const handlechats=async(id,reciever)=>{
         try{
-            const res=await fetch("http://localhost:8800/api/chat/"+id,{
+            const res=await fetch("https://rentnsellhub-production.up.railway.app/api/chat/"+id,{
                 method:"get",
                 credentials:"include"
             })
@@ -44,7 +44,7 @@ const handlesubmit=async(e)=>{
     const formdata= new FormData(e.target)
     const text=formdata.get("text")
     console.log(text)
-    const response= await fetch("http://localhost:8800/api/message/"+chat.id,{
+    const response= await fetch("https://rentnsellhub-production.up.railway.app/api/message/"+chat.id,{
         method:"post",
         headers: {
             'Content-Type': "application/json"
@@ -66,7 +66,7 @@ const handlesubmit=async(e)=>{
 useEffect(()=>{
     const read=async()=>{
         try{
-            await fetch('http://localhost:8800/api/chat/read/'+chat.id,{
+            await fetch('https://rentnsellhub-production.up.railway.app/api/chat/read/'+chat.id,{
                 method:"put",
                 credentials:"include",
                 headers:{

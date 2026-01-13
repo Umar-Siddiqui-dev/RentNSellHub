@@ -37,7 +37,7 @@ const Singlepage = () => {
     
     try{
 
-    const response=await fetch("http://localhost:8800/api/user/save/",{
+    const response=await fetch("https://rentnsellhub-production.up.railway.app/api/user/save/",{
       method:'post',
       credentials:"include",
       headers:{
@@ -61,7 +61,7 @@ const Singlepage = () => {
   const handlesendmessage=async(e)=>{
   if (currentUser!==post.userId)
   {
-    const response=await fetch("http://localhost:8800/api/chat/",{
+    const response=await fetch("https://rentnsellhub-production.up.railway.app/api/chat/",{
     method:"post",
     credentials:"include",
     headers:{

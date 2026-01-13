@@ -20,7 +20,7 @@ const Addpost = () => {
       const formdata=new FormData(e.target)
       let inputs= Object.fromEntries(formdata)
       try{
-        const response = await fetch("http://localhost:8800/api/post/", {
+        const response = await fetch("https://rentnsellhub-production.up.railway.app/api/post/", {
           method: "post",
           credentials: "include",
           headers: {

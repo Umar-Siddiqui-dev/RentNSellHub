@@ -14,7 +14,7 @@ const Profile = ({authorid}) => {
   const navigate=useNavigate()
   console.log(authorid)
   const handlelogout=async()=>{
-    const res= await fetch("http://localhost:8800/api/auth/login");
+    const res= await fetch("https://rentnsellhub-production.up.railway.app/api/auth/login");
     updateUser(null)
     navigate("/")
   }
